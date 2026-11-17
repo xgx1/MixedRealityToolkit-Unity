@@ -1,3 +1,4 @@
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 // Copyright (c) Mixed Reality Toolkit Contributors
 // Licensed under the BSD 3-Clause
 
@@ -6,6 +7,7 @@ using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 #if MRTK_INPUT_PRESENT
 using MixedReality.Toolkit.Input;

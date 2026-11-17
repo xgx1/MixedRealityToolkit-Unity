@@ -8,6 +8,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace MixedReality.Toolkit.SpatialManipulation
 {
@@ -760,7 +762,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
                 {
                     if (interactorsSelecting.Count == 0)
                     {
-                        ReleaseRigidBody(rigidBody.velocity, rigidBody.angularVelocity);
+                        ReleaseRigidBody(rigidBody.linearVelocity, rigidBody.angularVelocity);
                     }
                     else
                     {
@@ -908,7 +910,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
             // when player is moving, we need to anticipate where the targetTransform is going to be one time step from now
             distance -= referenceFrameVelocity * Time.fixedDeltaTime;
 
-            var velocity = rigidBody.velocity;
+            var velocity = rigidBody.linearVelocity;
 
             var acceleration = omega * omega * -distance;  // acceleration caused by spring force
 
@@ -937,7 +939,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
 
             velocity += referenceFrameVelocity;  // change back to global frame of reference
 
-            rigidBody.velocity = velocity;
+            rigidBody.linearVelocity = velocity;
 
             if (applyTorque)
             {
@@ -1035,7 +1037,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
                 {
                     if (releaseBehavior.IsMaskSet(ReleaseBehaviorType.KeepVelocity))
                     {
-                        rigidBody.velocity = velocity;
+                        rigidBody.linearVelocity = velocity;
                     }
 
                     if (releaseBehavior.IsMaskSet(ReleaseBehaviorType.KeepAngularVelocity))
@@ -1059,7 +1061,7 @@ namespace MixedReality.Toolkit.SpatialManipulation
             // for modeling rotations with far rays. Therefore, we cast down to the base TrackedDevice,
             // and query the device rotation directly. If any of this can't be casted, we return the
             // interactor's attachTransform's rotation.
-            if (interactor is XRBaseControllerInteractor controllerInteractor &&
+            if (interactor is XRBaseInputInteractor controllerInteractor &&
                 controllerInteractor.xrController is ActionBasedController abController &&
                 abController.rotationAction.action?.activeControl?.device is TrackedDevice device)
             {

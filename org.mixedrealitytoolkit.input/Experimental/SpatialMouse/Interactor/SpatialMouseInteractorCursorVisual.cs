@@ -3,6 +3,7 @@
 
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using static MixedReality.Toolkit.Input.XRRayInteractorExtensions;
 
 namespace MixedReality.Toolkit.Input.Experimental

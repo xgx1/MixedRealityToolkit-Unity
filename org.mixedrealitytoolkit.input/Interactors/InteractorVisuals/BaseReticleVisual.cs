@@ -1,3 +1,4 @@
+using UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals;
 // Copyright (c) Mixed Reality Toolkit Contributors
 // Licensed under the BSD 3-Clause
 

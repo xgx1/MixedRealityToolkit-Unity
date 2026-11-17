@@ -14,6 +14,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.TestTools;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using HandshapeId = MixedReality.Toolkit.Input.HandshapeTypes.HandshapeId;
 
 namespace MixedReality.Toolkit.Input.Tests
